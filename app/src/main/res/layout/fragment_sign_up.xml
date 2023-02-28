@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.musicals.viewmodels.SignUpViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/splash_background_gradiant"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            tools:context=".views.fragments.SignUpFragment">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/welcome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:text="@string/create_account"
+                    android:textSize="40sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/welcome_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/signup_message"
+                    android:textSize="35sp"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="@id/welcome"
+                    app:layout_constraintStart_toStartOf="@id/welcome"
+                    app:layout_constraintTop_toBottomOf="@id/welcome" />
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="fill_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/input_fields"
+                    android:hint="@string/input_name_hint"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textColorHint="#b3ffffff"
+                    app:layout_constraintEnd_toEndOf="@+id/welcome_message"
+                    app:layout_constraintStart_toStartOf="@+id/welcome_message"
+                    app:layout_constraintTop_toBottomOf="@+id/welcome_message" />
+
+                <EditText
+                    android:id="@+id/userId"
+                    android:layout_width="fill_parent"
+                    android:layout_height="48.0dip"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/input_fields"
+                    android:hint="@string/input_user_id_hint"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:paddingLeft="16.0dip"
+                    android:paddingRight="16.0dip"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textColorHint="#b3ffffff"
+                    app:layout_constraintEnd_toEndOf="@+id/name"
+                    app:layout_constraintStart_toStartOf="@+id/name"
+                    app:layout_constraintTop_toBottomOf="@+id/name" />
+
+                <EditText
+                    android:id="@+id/userPassword"
+                    android:layout_width="fill_parent"
+                    android:layout_height="48.0dip"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/input_fields"
+                    android:hint="@string/input_password_hint"
+                    android:importantForAutofill="no"
+                    android:inputType="textPassword"
+                    android:paddingLeft="16.0dip"
+                    android:paddingRight="16.0dip"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textColorHint="#b3ffffff"
+                    app:layout_constraintEnd_toEndOf="@+id/userId"
+                    app:layout_constraintStart_toStartOf="@+id/userId"
+                    app:layout_constraintTop_toBottomOf="@+id/userId" />
+
+                <EditText
+                    android:id="@+id/confirmPassword"
+                    android:layout_width="fill_parent"
+                    android:layout_height="48.0dip"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/input_fields"
+                    android:hint="@string/password_box_hint"
+                    android:importantForAutofill="no"
+                    android:inputType="textPassword"
+                    android:paddingLeft="16.0dip"
+                    android:paddingRight="16.0dip"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textColorHint="#b3ffffff"
+                    app:layout_constraintEnd_toEndOf="@+id/userPassword"
+                    app:layout_constraintStart_toStartOf="@+id/userPassword"
+                    app:layout_constraintTop_toBottomOf="@+id/userPassword" />
+
+
+                <Button
+                    android:id="@+id/signupButton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/input_fields"
+                    android:text="@string/sign_up_button"
+                    app:layout_constraintStart_toStartOf="@+id/confirmPassword"
+                    app:layout_constraintTop_toBottomOf="@+id/confirmPassword" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <FrameLayout
+                android:id="@+id/signupSplashContainer"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

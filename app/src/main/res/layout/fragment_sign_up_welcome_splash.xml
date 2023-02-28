@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.fragments.SignUpWelcomeSplash"
+        android:background="@drawable/splash_background_gradiant">
+
+        <!-- TODO: Update blank fragment layout -->
+        <ImageView
+            android:id="@+id/appLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="70pt"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/app_logo_splash_inner"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:contentDescription="@string/app_logo_description" />
+
+        <TextView
+            android:id="@+id/congratulation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/congratulation"
+            android:textSize="40sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="@+id/appLogo"
+            app:layout_constraintStart_toStartOf="@+id/appLogo"
+            app:layout_constraintTop_toBottomOf="@id/appLogo" />
+
+        <TextView
+            android:id="@+id/succesMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_splash_message"
+            android:textSize="35sp"
+            android:textStyle="italic"
+            android:layout_marginTop="40dp"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="@+id/congratulation"
+            app:layout_constraintEnd_toEndOf="@id/congratulation"
+            app:layout_constraintTop_toBottomOf="@id/congratulation" />
+
+        <Button
+            android:id="@+id/homeButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/input_fields"
+            android:backgroundTint="@null"
+            android:text="@string/login_button_splash"
+            app:layout_constraintStart_toStartOf="@id/succesMessage"
+            app:layout_constraintTop_toBottomOf="@id/succesMessage" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

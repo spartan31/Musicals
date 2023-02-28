@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Musicals</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="music_logo_cardview_decription">music logo cardview</string>
+    <string name="music_title_cardview">Music Title</string>
+    <string name="music_artist_cardview">Music Artist</string>
+    <string name="login_button_splash">Login Now</string>
+    <string name="signup_splash_message">Account created. Taking you to Login Screen</string>
+    <string name="congratulation">Congratulation!!</string>
+    <string name="app_logo_description">App Logo</string>
+    <string name="sign_up_button">Sign Up</string>
+    <string name="password_box_hint">Enter your Password</string>
+    <string name="create_account">Create Account</string>
+    <string name="signup_message">to get started now!</string>
+    <string name="input_name_hint">Enter your Name</string>
+    <string name="input_user_id_hint">Enter your UserId</string>
+    <string name="input_password_hint">Enter your Password</string>
+    <string name="sign_out_button">Sign Out</string>
+    <string name="update_details_button">Update Details</string>
+    <string name="update_message">Data Updated Successfully !</string>
+    <string name="edit_image_button_description">edit image button</string>
+    <string name="profile_username">Hello Username</string>
+    <string name="your_name">Your Name</string>
+    <string name="your_id">Your Id</string>
+    <string name="password">Password</string>
+    <string name="welcome_screen_animation">Welcome screen animation</string>
+    <string name="inner_animation_image">inner animation image</string>
+    <string name="song_name">Song Name</string>
+    <string name="artist_name">Artist Name</string>
+    <string name="music_thumbnail">Music Thumbnail</string>
+    <string name="play_pause_button">play pause button</string>
+    <string name="previous_button">previous button</string>
+    <string name="next_button">next button</string>
+    <string name="start_time_song">00</string>
+    <string name="end_time_song">00</string>
+    <string name="welcome">Welcome</string>
+    <string name="login_message">Glad to see you!</string>
+    <string name="sign_in">Sign In</string>
+    <string name="create_new_account">Create New Account</string>
+</resources>

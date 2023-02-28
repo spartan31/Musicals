@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.musicals.viewmodels.ProfileViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/topContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".views.fragments.ProfileFragment">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/splash_background_gradiant"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".15"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleImageView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="40dp"
+                app:civ_border_color="@color/themeColorRed"
+                app:civ_border_width="5dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="140dp"
+                android:contentDescription="@string/edit_image_button_description"
+                android:src="@drawable/edit_image_button_foreground"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/constraint1"
+                app:layout_constraintTop_toTopOf="@+id/circleImageView" />
+
+
+            <TextView
+                android:id="@+id/userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/profile_username"
+                android:textAlignment="center"
+                android:textColorHighlight="@color/themeColorBlue"
+                android:textSize="40sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="@+id/circleImageView"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/circleImageView"
+                app:layout_constraintTop_toBottomOf="@id/circleImageView" />
+
+            <LinearLayout
+                android:id="@+id/idContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                app:layout_constraintEnd_toEndOf="@id/userName"
+                app:layout_constraintStart_toStartOf="@id/userName"
+                app:layout_constraintTop_toBottomOf="@id/userName">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="@string/your_id"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/editTextId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@{viewModel.userId}"
+                    android:textColor="@color/themeColorRed"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/nameContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                app:layout_constraintEnd_toEndOf="@id/idContainer"
+                app:layout_constraintStart_toStartOf="@id/idContainer"
+                app:layout_constraintTop_toBottomOf="@+id/idContainer">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="@string/your_name"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/editTextName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#FFFF"
+                    android:enabled="false"
+                    android:inputType="text"
+                    android:text="@={viewModel.userName}"
+                    android:hint="@string/profile_username"
+                    android:textColor="@color/themeColorRed"
+                    android:textSize="25sp"
+                    android:importantForAutofill="no"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/passwordContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:visibility="invisible"
+                android:weightSum="3"
+                app:layout_constraintEnd_toEndOf="@id/nameContainer"
+                app:layout_constraintStart_toStartOf="@id/nameContainer"
+                app:layout_constraintTop_toBottomOf="@+id/nameContainer">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="@string/password"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/editTextPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:enabled="false"
+                    android:text="@={viewModel.userPassword}"
+                    android:textColor="@color/themeColorRed"
+                    android:textSize="25sp"
+                    android:inputType="textPassword"
+                    android:importantForAutofill="no"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/updateMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/update_message"
+                android:textColor="@color/themeColorBlue"
+                android:textSize="25sp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="@id/passwordContainer"
+                app:layout_constraintStart_toStartOf="@id/passwordContainer"
+                app:layout_constraintTop_toBottomOf="@+id/passwordContainer" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/updateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/rounded_corner"
+                android:text="@string/update_details_button"
+                android:textColor="@color/themeColorBlue"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/updateMessage"
+                app:layout_constraintStart_toStartOf="@+id/updateMessage"
+                app:layout_constraintTop_toBottomOf="@+id/updateMessage" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/logoutButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/rounded_corner"
+                android:backgroundTint="@null"
+                android:text="@string/sign_out_button"
+                android:textColor="@color/themeColorBlue"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/updateButton"
+                app:layout_constraintStart_toStartOf="@id/updateButton"
+                app:layout_constraintTop_toBottomOf="@id/updateButton" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
+
+
