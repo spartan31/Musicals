@@ -110,11 +110,17 @@ class MusicPlayerActivity : AppCompatActivity(), View.OnClickListener, ServiceCo
 
         musicService = binder.currentService()
         viewModel.audioToMediaPlayerConverter(musicService!!)
-        musicService!!.showNotification(R.drawable.pause_song_button)
+        musicService?.showNotification(R.drawable.pause_song_button)
     }
 
     override fun onServiceDisconnected(p0: ComponentName?) {
         musicService = null
+    }
+
+    override fun onDestroy() {
+        viewModel.stopPlaying()
+        musicService!!.stopForeground(true)
+        super.onDestroy()
     }
 }
 
