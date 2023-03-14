@@ -41,7 +41,7 @@ class DownloaderFragment : Fragment() {
 
     private fun getAllAudioFromDevice(): ArrayList<AudioModel> {
         val tempAudioList = ArrayList<AudioModel>()
-        val internalContentUri = MediaStore.Audio.Media.INTERNAL_CONTENT_URI
+        val internalContentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
         var projection = arrayOf(
             MediaStore.Audio.AudioColumns.DATA,
             MediaStore.Audio.AudioColumns.ALBUM,
