@@ -18,7 +18,6 @@ class MusicListAdapter(val context: Context, private val audioList : ArrayList<A
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MusicListViewHolder {
 
-        // Binding
         binding = RecyclerAudioCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MusicListViewHolder(binding)
 

@@ -3,6 +3,8 @@ package com.example.musicals.views.notifcationservice
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Binder
@@ -11,6 +13,9 @@ import android.provider.MediaStore
 import androidx.core.app.NotificationCompat
 import com.example.musicals.R
 import com.example.musicals.viewmodels.MusicPlayerViewModel
+import java.io.File
+import java.io.FileNotFoundException
+
 
 class MusicService : Service() {
 
@@ -40,6 +45,15 @@ class MusicService : Service() {
         val exitIntent = Intent(baseContext, NotificationReceiver::class.java).setAction(NotificationApplication.EXIT)
         val exitIntentPending = PendingIntent.getBroadcast(baseContext,0,exitIntent,PendingIntent.FLAG_IMMUTABLE)
 
+
+        val audioImageUri = Uri.parse(MusicPlayerViewModel.audioList.value?.get(MusicPlayerViewModel.currentSongPosition.value!!)?.audioImage)
+        val largeIcon: Bitmap? = try {
+                MediaStore.Images.Media.getBitmap(contentResolver, audioImageUri)
+            }catch (e : FileNotFoundException){
+                BitmapFactory.decodeResource(baseContext.resources, R.drawable.default_song_thumbnail)
+            }
+
+
         val notification = NotificationCompat.Builder(baseContext, NotificationApplication.CHANNEL_ID)
             .setContentTitle(MusicPlayerViewModel.currentSongPosition.value?.let {
                 MusicPlayerViewModel.audioList.value!![it].audioName
@@ -48,9 +62,7 @@ class MusicService : Service() {
                 MusicPlayerViewModel.audioList.value!![it].audioArtist
             })
             .setSmallIcon(R.drawable.music_icon_foreground)
-            .setLargeIcon(MediaStore.Images.Media.getBitmap(contentResolver, Uri.parse(MusicPlayerViewModel.currentSongPosition.value?.let {
-                MusicPlayerViewModel.audioList.value!![it].audioImage
-            })))
+            . setLargeIcon(largeIcon)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC).setOnlyAlertOnce(true)
             .setOnlyAlertOnce(true)
